@@ -28,8 +28,6 @@ public class UsernameAndPasswordAuthenticationProvider implements Authentication
         // Get data from the new Authentication attempt:
         String username = authentication.getName();
         String pwd = authentication.getCredentials().toString();
-        System.out.println(authentication.getCredentials());
-
         // Find User in Repository:
         List<User> users = userRepository.findByUsername(username);
         if(users.size() > 0) {
@@ -47,7 +45,6 @@ public class UsernameAndPasswordAuthenticationProvider implements Authentication
         } else {
             throw new BadCredentialsException("Invalid Username or Password");
         }
-
     }
 
     @Override
